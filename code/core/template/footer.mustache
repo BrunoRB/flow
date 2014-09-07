@@ -1,0 +1,21 @@
+        {{#extraContent}}
+            {{.}}
+        {{/extraContent}}
+        
+        {{!global libraries}}
+        {{^serverIsOnProduction}}
+        <script src="/resources/js/jquery-2.1.0.js"></script>
+        <script src="/resources/js/jquery-ui-1.9-2.js"></script>
+        <script src="/resources/js/semantic.js"></script>
+        <script src="/resources/js/alertify.js"></script>
+        {{/serverIsOnProduction}}
+        {{#serverIsOnProduction}} {{! if Production we render the concatenated libraries }}
+        <script src="/resources/js/libraries.min.js"></script>
+        {{/serverIsOnProduction}}
+        
+        {{!page libraries}}
+        {{#extraJS}}
+        <script src="{{.}}"></script>
+        {{/extraJS}}
+    </body>
+</html>

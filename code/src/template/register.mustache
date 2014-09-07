@@ -1,0 +1,39 @@
+<form id="register" class="ui form segment inverted" method="post" action="/home/registerNewUser">
+
+    <div class="field">
+        <label for="name">Nome: </label>
+        <div class="ui left labeled icon input">
+            <input id="name" name="name" type="text">
+            <i class="user icon"></i>
+            <div class="ui corner label red">
+                <i class="icon asterisk"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="email">Email: </label>
+        <div class="ui left labeled icon input">
+            <input id="email" name="email" type="email">
+            <i class="mail icon"></i>
+            <div class="ui corner label red">
+                <i class="icon asterisk"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="password">Password</label>
+        <div class="ui left labeled icon input">
+            <input id="password" name="password" type="password">
+            <i class="lock icon"></i>
+            <div class="ui corner label red">
+                <i class="icon asterisk"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div id="submit-div" class="field">
+        <button id="submit" name="submit" type="submit" class="ui button teal large">Registrar</button>
+    </div>
+</form>

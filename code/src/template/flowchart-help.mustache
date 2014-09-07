@@ -1,0 +1,381 @@
+
+{{! BEGIN }}
+<div class="title">
+    <i class="dropdown icon"></i>
+    <strong>Início</strong>
+</div>
+<section class="content shape-accordion">
+    <div>
+        <div class="shape" title="begin" data-flow-name="begin"></div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Descrição</em>
+            </div>
+            <div class="content field">
+                Marca o início do algoritmo no fluxograma, sendo assim este elemento é obrigatório para que um
+                fluxograma seja considerado válido e possa ser executado corretamente
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Restrições</em>
+            </div>
+            <div class="content field">
+                <ul>
+                    {{#begin}}
+                    <li>Número máximo de cópias desse elemento no fluxograma: {{{max_copies}}}</li>
+                    <li>Numero máximo de conexões de saída: {{{max_outputs}}}</li>
+                    <li>Número máximo de conexões de entradas: {{{max_inputs}}}</li>
+                    <li>
+                        Texto interno pode ser editado?:
+                        {{#has_user_text}}Sim{{/has_user_text}}
+                        {{^has_user_text}}Não{{/has_user_text}}
+                    </li>
+                    {{/begin}}
+                </ul>
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Exemplos</em>
+            </div>
+            <div class="content field examples">
+                {{#begin}}
+                {{#examples}}
+                <a class="ui button basic help-example" href="/flowchart/load/{{id}}" data-flow-id="{{id}}"
+                   data-flow-name="{{name}}">
+                    {{name}}
+                </a>
+                {{/examples}}
+                {{/begin}}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{! END }}
+<div class="title">
+    <i class="dropdown icon"></i>
+    <strong>Fim</strong>
+</div>
+<section class="content shape-accordion">
+    <div>
+        <div class="shape" title="end" data-flow-name="end"></div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Descrição</em>
+            </div>
+            <div class="content field">
+                Marca o fim do algoritmo no fluxograma, sendo assim este elemento é obrigatório para que um
+                fluxograma seja considerado válido e possa ser executado corretamente
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Restrições</em>
+            </div>
+            <div class="content field">
+                <ul>
+                    {{#end}}
+                    <li>Número máximo de cópias desse elemento no fluxograma: {{{max_copies}}}</li>
+                    <li>Numero máximo de conexões de saída: {{{max_outputs}}}</li>
+                    <li>Número máximo de conexões de entradas: {{{max_inputs}}}</li>
+                    <li>
+                        Texto interno pode ser editado?:
+                        {{#has_user_text}}Sim{{/has_user_text}}
+                        {{^has_user_text}}Não{{/has_user_text}}
+                    </li>
+                    {{/end}}
+                </ul>
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Exemplo</em>
+            </div>
+            <div class="content field examples">
+                {{#end}}
+                {{#examples}}
+                <a class="ui button basic help-example" href="/flowchart/load/{{id}}" data-flow-id="{{id}}"
+                   data-flow-name="{{name}}">
+                    {{name}}
+                </a>
+                {{/examples}}
+                {{/end}}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{! DISPLAY }}
+<div class="title">
+    <i class="dropdown icon"></i>
+    <strong>Exibição</strong>
+</div>
+<section class="content shape-accordion">
+    <div>
+        <div class="shape" title="display" data-flow-name="display"></div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Descrição</em>
+            </div>
+            <div class="content field">
+                Elemento permite a exibição do valores de variáveis ou de expressões lógico-matemáticas.
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Restrições</em>
+            </div>
+            <div class="content field">
+                <ul>
+                    {{#display}}
+                    <li>Número máximo de cópias desse elemento no fluxograma: {{{max_copies}}}</li>
+                    <li>Numero máximo de conexões de saída: {{{max_outputs}}}</li>
+                    <li>Número máximo de conexões de entradas: {{{max_inputs}}}</li>
+                    <li>
+                        Texto interno pode ser editado?:
+                        {{#has_user_text}}Sim{{/has_user_text}}
+                        {{^has_user_text}}Não{{/has_user_text}}
+                    </li>
+                    {{/display}}
+                </ul>
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Exemplo</em>
+            </div>
+            <div class="content field examples">
+                {{#display}}
+                {{#examples}}
+                <a class="ui button basic help-example" href="/flowchart/load/{{id}}" data-flow-id="{{id}}"
+                   data-flow-name="{{name}}">
+                    {{name}}
+                </a>
+                {{/examples}}
+                {{/display}}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{! MANUAL INPUT }}
+<div class="title">
+    <i class="dropdown icon"></i>
+    <strong>Entrada Manual</strong>
+</div>
+<section class="content shape-accordion">
+    <div>
+        <div class="shape" title="manual_input" data-flow-name="manual_input"></div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Descrição</em>
+            </div>
+            <div class="content field">
+                Elemento utilizado para entrada de valores por parte do usuário.
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Restrições</em>
+            </div>
+            <div class="content field">
+                <ul>
+                    {{#manual_input}}
+                    <li>Número máximo de cópias desse elemento no fluxograma: {{{max_copies}}}</li>
+                    <li>Numero máximo de conexões de saída: {{{max_outputs}}}</li>
+                    <li>Número máximo de conexões de entradas: {{{max_inputs}}}</li>
+                    <li>
+                        Texto interno pode ser editado?:
+                        {{#has_user_text}}Sim{{/has_user_text}}
+                        {{^has_user_text}}Não{{/has_user_text}}
+                    </li>
+                    {{/manual_input}}
+                </ul>
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Exemplo</em>
+            </div>
+            <div class="content field examples">
+                {{#manual_input}}
+                {{#examples}}
+                <a class="ui button basic help-example" href="/flowchart/load/{{id}}" data-flow-id="{{id}}"
+                   data-flow-name="{{name}}">
+                    {{name}}
+                </a>
+                {{/examples}}
+                {{/manual_input}}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{! PROCESS }}
+<div class="title">
+    <i class="dropdown icon"></i>
+    <strong>Processamento</strong>
+</div>
+<section class="content shape-accordion">
+    <div>
+        <div class="shape" title="process" data-flow-name="process"></div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Descrição</em>
+            </div>
+            <div class="content field">
+                Elemento utilizado para operações lógico-matemáticas e atribuição de valores a variáveis
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Restrições</em>
+            </div>
+            <div class="content field">
+                <ul>
+                    {{#process}}
+                    <li>Número máximo de cópias desse elemento no fluxograma: {{{max_copies}}}</li>
+                    <li>Numero máximo de conexões de saída: {{{max_outputs}}}</li>
+                    <li>Número máximo de conexões de entradas: {{{max_inputs}}}</li>
+                    <li>
+                        Texto interno pode ser editado?:
+                        {{#has_user_text}}Sim{{/has_user_text}}
+                        {{^has_user_text}}Não{{/has_user_text}}
+                    </li>
+                    {{/process}}
+                </ul>
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Exemplo</em>
+            </div>
+            <div class="content field examples">
+                {{#process}}
+                {{#examples}}
+                <a class="ui button basic help-example" href="/flowchart/load/{{id}}" data-flow-id="{{id}}"
+                   data-flow-name="{{name}}">
+                    {{name}}
+                </a>
+                {{/examples}}
+                {{/process}}
+            </div>
+        </div>
+    </div>
+</section>
+
+{{! DECISION }}
+<div class="title">
+    <i class="dropdown icon"></i>
+    <strong>Decisão</strong>
+</div>
+<section class="content shape-accordion">
+    <div>
+        <div class="shape" title="decision" data-flow-name="decision"></div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Descrição</em>
+            </div>
+            <div class="content field">
+                Elemento utilizado para criação de desvios de fluxo lógico, "SE" e "SENÃO". <br>
+                Pode também ser utilizado para criar laços de repetição, "ENQUANTO" e "FAÇA...ENQUANTO".
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Restrições</em>
+            </div>
+            <div class="content field">
+                <ul>
+                    {{#decision}}
+                    <li>Número máximo de cópias desse elemento no fluxograma: {{{max_copies}}}</li>
+                    <li>Numero máximo de conexões de saída: {{{max_outputs}}}</li>
+                    <li>Número máximo de conexões de entradas: {{{max_inputs}}}</li>
+                    <li>
+                        Texto interno pode ser editado?:
+                        {{#has_user_text}}Sim{{/has_user_text}}
+                        {{^has_user_text}}Não{{/has_user_text}}
+                    </li>
+                    {{/decision}}
+                </ul>
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Exemplo</em>
+            </div>
+            <div class="content field examples">
+                TODO
+            </div>
+        </div>
+    </div>
+</section>
+
+{{! CONNECTOR }}
+<div class="title">
+    <i class="dropdown icon"></i>
+    <strong>Conector</strong>
+</div>
+<section class="content shape-accordion">
+    <div>
+        <div class="shape" title="connector" data-flow-name="connector"></div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Descrição</em>
+            </div>
+            <div class="content field">
+                Elemento utilizado para reconectar dois fluxos de execução separados por uma decisão.
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Restrições</em>
+            </div>
+            <div class="content field">
+                <ul>
+                    {{#connector}}
+                    <li>Número máximo de cópias desse elemento no fluxograma: {{{max_copies}}}</li>
+                    <li>Numero máximo de conexões de saída: {{{max_outputs}}}</li>
+                    <li>Número máximo de conexões de entradas: {{{max_inputs}}}</li>
+                    <li>
+                        Texto interno pode ser editado?:
+                        {{#has_user_text}}Sim{{/has_user_text}}
+                        {{^has_user_text}}Não{{/has_user_text}}
+                    </li>
+                    {{/connector}}
+                </ul>
+            </div>
+        </div>
+        <div class="ui basic accordion field">
+            <div class="title">
+                <i class="icon dropdown"></i>
+                <em>Exemplo</em>
+            </div>
+            <div class="content field examples">
+                TODO
+            </div>
+        </div>
+    </div>
+</section>

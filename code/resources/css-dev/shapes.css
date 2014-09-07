@@ -1,0 +1,283 @@
+._jsPlumb_connector:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+._jsPlumb_endpoint, ._jsPlumb_dragging {
+    cursor: move !important;
+    z-index: 999; /* bypass overlay z-index*/
+}
+
+div.flowchart.frozen-anchors {
+    box-shadow: 0 0 5px red;
+}
+div.flowchart.frozen-anchors #toggle-settings {
+    display: none;
+}
+
+div.flowchart.frozen-anchors ._jsPlumb_endpoint {
+    visibility: hidden;
+    z-index: -1;
+}
+
+.source-anchor {
+    visibility: hidden;
+    cursor: default;
+    z-index: -1;
+}
+
+section#shape-menu div.shape {
+    float: left;
+    cursor: move;
+    position: relative;
+    margin: 15px 20px 5px 40px;
+}
+
+#shape-menu div.shape[data-flow-name="manual_input"] {
+    margin: 2px;
+}
+
+#shape-menu div.shape[data-flow-name="decision"] {
+    margin-left: 50px;
+}
+
+#shape-menu div.shape[data-flow-name="connector"] {
+    margin-left: 60px;
+}
+
+#shape-menu div.shape[data-flow-name="display"] {
+    margin: 5px;
+}
+
+div.shape {
+    border: 1px solid black;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    font-family: monospace;
+    background-color: white;
+    position: absolute;
+}
+
+div.shape:hover {
+    z-index: 900;
+}
+
+div.shape[data-flow-name="decision"] code {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+}
+
+div.shape input {
+    text-align: center;
+    position: relative;
+    width: 95%;
+    top: 30%;
+    font-size: 14px;
+}
+
+.ui-draggable-dragging {
+    cursor: move !important;
+    z-index: 100;
+}
+
+div.shape[data-flow-name="begin"],
+div.shape[data-flow-name="end"],
+div.shape[data-flow-name="process"],
+div.shape[data-flow-name="manual_input"] {
+    width: 120px;
+    height: 50px;
+}
+
+#shape-menu div.shape[data-flow-name="begin"],
+#shape-menu div.shape[data-flow-name="end"],
+#shape-menu div.shape[data-flow-name="process"] {
+    width: 50px;
+    height: 20px;
+}
+
+#shape-menu div.shape[data-flow-name="connector"] {
+    width: 25px;
+    height: 25px;
+}
+
+#shape-menu div.shape[data-flow-name="decision"] {
+    width: 25px;
+    height: 25px;
+}
+
+#shape-menu div.shape[data-flow-name="manual_input"],
+#shape-menu div.shape[data-flow-name="display"] {
+    -webkit-transform:scale(0.4) !important;
+    -moz-transform:scale(0.4) !important;
+    -ms-transform:scale(0.4) !important;
+    -o-transform:scale(0.4) !important;
+    transform:scale(0.4) !important;
+}
+
+div.shape[data-flow-name="begin"] {
+    border-radius: 25px;
+}
+
+div.shape[data-flow-name="end"] {
+    border-radius: 25px;
+    background-color: black;
+}
+
+div.shape[data-flow-name="display"] {
+    border-radius: 50px;
+    background:  transparent url("/resources/images/display.gif") no-repeat 0 center;
+    width: 125px;
+    height: 60px;
+    border-bottom-left-radius: 60px;
+    border-top-left-radius: 60px;
+}
+
+div.shape[data-flow-name="display"] input {
+    width: 80%;
+    left: 2px;
+}
+
+div.shape[data-flow-name="manual_input"],
+div.shape[data-flow-name="display"] {
+    border: none;
+}
+
+div.shape[data-flow-name="manual_input"] {
+    border-bottom: 1px groove gray;
+    background:  transparent url("/resources/images/manual_input.png") no-repeat 0 center;
+}
+div.shape[data-flow-name="manual_input"] input {
+    width: 90%;
+}
+
+
+div.shape[data-flow-name="connector"] {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+div.shape[data-flow-name="decision"] {
+    width: 70px;
+    height: 70px;
+    z-index: 5;
+}
+
+div.shape[data-flow-name="decision"] {
+    -webkit-transform:rotate(45deg) !important;
+    -moz-transform:rotate(45deg) !important;
+    -o-transform:rotate(45deg) !important;
+    transform:rotate(45deg) !important;
+}
+
+div.shape[data-flow-name="decision"] input,
+div.shape[data-flow-name="decision"] code {
+    -webkit-transform:rotate(-45deg);
+    -moz-transform:rotate(-45deg);
+    -o-transform:rotate(-45deg);
+    transform:rotate(-45deg);
+}
+
+div.shape code {
+    position: relative;
+    top: 30%;
+    color: black;
+    font-size: 12px;
+}
+
+img.connector {
+    width: 15px;
+    background-color: white;
+    height: 15px;
+    border-radius: 100%;
+    border: 2px solid midnightblue;
+    visibility: hidden;
+    position: absolute;
+    margin: 0;
+}
+
+#flowchart-container div.shape img.connector-top {
+    right:50px; bottom: 40px;
+}
+#flowchart-container div.shape img.connector-bottom {
+    left: 50px; top:40px;
+}
+#flowchart-container div.shape img.connector-left {
+    right:110px; bottom: 15px;
+}
+#flowchart-container div.shape img.connector-right {
+    left: 110px; bottom: 15px;
+}
+
+#flowchart-container div.shape[data-flow-name="display"] img.connector-top {
+    right: 50px; bottom: 45px;
+}
+#flowchart-container div.shape[data-flow-name="display"] img.connector-bottom {
+    left: 55px; top: 45px;
+}
+#flowchart-container div.shape[data-flow-name="display"] img.connector-left {
+    right:110px; bottom: 20px;
+}
+#flowchart-container div.shape[data-flow-name="display"] img.connector-right {
+    left: 110px; bottom: 20px;
+}
+
+#flowchart-container div.shape[data-flow-name="decision"] img.connector-top {
+    right:25px; bottom: 60px;
+}
+#flowchart-container div.shape[data-flow-name="decision"] img.connector-bottom {
+    left: 25px; top:60px;
+}
+#flowchart-container div.shape[data-flow-name="decision"] img.connector-left {
+    right:60px; bottom: 25px;
+}
+#flowchart-container div.shape[data-flow-name="decision"] img.connector-right {
+    left: 60px; bottom: 25px;
+}
+
+#flowchart-container div.shape[data-flow-name="connector"] img.connector-top {
+    right:20px; bottom: 50px;
+}
+#flowchart-container div.shape[data-flow-name="connector"] img.connector-bottom {
+    left: 20px; top:50px;
+}
+#flowchart-container div.shape[data-flow-name="connector"] img.connector-left {
+    right:50px; bottom: 20px;
+}
+#flowchart-container div.shape[data-flow-name="connector"] img.connector-right {
+    left: 50px; bottom: 20px;
+}
+
+#flowchart-container div.shape:hover img.connector {
+    visibility: visible;
+    z-index: 999;
+}
+#flowchart-container div.shape[data-flow-name="end"] img.connector {
+    display: none;
+}
+
+.connector-text {
+    position: absolute;
+    cursor: pointer;
+    font-weight: bold;
+    outline-color: teal;
+    color: teal;
+    text-align: center;
+    border: none;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+input.connector-text {
+    box-shadow: 0 0 20px teal;
+    cursor: text;
+}
+
+select.connector-text {
+    box-shadow: 0 0 20px teal;
+    background-color: white;
+    padding: 3px;
+}

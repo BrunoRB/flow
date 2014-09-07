@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="Teste" default="build">
+	<target name="build" depends="prepare, phpcs-ci, phpdox, phpcpd, phploc, plato, codeception"/> <!-- add codeception -->
+
+ <target name="clean" description="Cleanup build artifacts">
+  <delete dir="${basedir}/build/_log"/>
+  <delete dir="${basedir}/build/phpdox"/>
+  <delete dir="${basedir}/build/api"/>
+  <delete dir="${basedir}/build/coverage"/>
+ </target>
+
+ <target name="prepare" depends="clean" description="Prepare for build">
+  <mkdir dir="${basedir}/build/_log"/>
+  <mkdir dir="${basedir}/build/phpdox"/>
+  <mkdir dir="${basedir}/build/api"/>
+  <mkdir dir="${basedir}/build/coverage"/>
+ </target>
+ 
+ 
+ <!-- PHPCS padrão de código -->
+ <target name="phpcs"
+         description="Find coding standard violations using PHP_CodeSniffer and print human readable output. Intended for usage on the command line before committing.">
+  <exec executable="phpcs">
+   <arg value="--standard=${basedir}/build/phpcs.xml" />
+   <arg value="--report-file=${basedir}/build/_log/checkstyle.xml" />
+   <arg value="-l" />
+   <arg path="${basedir}/code/core/" />
+   <arg path="${basedir}/code/error/" />
+   <arg path="${basedir}/code/src/controller" />
+   <arg path="${basedir}/code/src/application" />
+   <arg path="${basedir}/code/src/entity" />
+   <arg path="${basedir}/code/resources/js-dev" />
+   <arg path="${basedir}/code/tests/acceptance/_steps/" />
+   <arg path="${basedir}/code/tests/acceptance/flowchart/" />
+  </exec>
+ </target>
+
+ <target name="phpcs-ci" description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
+  <exec executable="phpcs" output="/dev/null">
+   <arg value="--report=checkstyle" />
+   <arg value="--report-file=${basedir}/build/_log/checkstyle.xml" />
+   <arg value="--standard=${basedir}/build/phpcs.xml" />
+   <arg value="-l" />
+   <arg path="${basedir}/code/core/" />
+   <arg path="${basedir}/code/error/" />
+   <arg path="${basedir}/code/src/controller" />
+   <arg path="${basedir}/code/src/application" />
+   <arg path="${basedir}/code/src/entity" />
+   <arg path="${basedir}/code/resources/js-dev" />
+   <arg path="${basedir}/code/tests/acceptance/_steps/" />
+   <arg path="${basedir}/code/tests/acceptance/flowchart/" />
+  </exec>
+ </target>
+ <!-- END PHPCS padrão de código -->
+ 
+ 
+ <!-- PHPDOX documentação -->
+ <target name="phpdox" description="Generate API documentation using phpDox">
+  <exec executable="phpdox">
+  	<arg value="--file=${basedir}/build/phpdox.dist.xml" />
+  </exec>
+ </target>
+  <!-- END PHPDOX documentação -->
+  
+   <!-- CODECEPTION -->
+  <target name="codeception" description="Acceptance and unit tests">
+	  <exec dir="${basedir}/code/" executable="php" failonerror="false">
+		<arg line="codecept.phar --xml --html run acceptance" />
+	  </exec>
+  </target>
+  <!-- END CODECEPTION -->
+  
+   <!-- COPY PASTE DETECTOR código duplicado -->
+  <target name="phpcpd" description="Find duplicate code using PHPCPD">
+   <exec executable="phpcpd">
+   <arg value="--log-pmd" />
+   <arg value="${basedir}/build/_log/pmd-cpd.xml" />
+   <arg value="--exclude" />
+   <arg value="library" />
+   <arg path="${basedir}/code/src/" />
+   <arg path="${basedir}/code/core/" />
+   <arg path="${basedir}/code/error/" />
+   <arg path="${basedir}/code/tests/acceptance/_steps/" />
+   <arg path="${basedir}/code/tests/acceptance/flowchart/" />
+  </exec>
+ </target>
+ <!-- END COPY PASTE DETECTOR código duplicado -->
+ 
+ <!-- PHPLOC linhas de código -->
+  <target name="phploc" description="Measure project size using PHPLOC">
+  <exec executable="phploc">
+   <arg value="--log-csv" />
+   <arg value="${basedir}/build/_log/phploc.csv" />
+   <arg path="${basedir}/code/src/" />
+   <arg path="${basedir}/code/core/" />
+   <arg path="${basedir}/code/error/" />
+   <arg path="${basedir}/code/tests/acceptance/_steps/" />
+   <arg path="${basedir}/code/tests/acceptance/flowchart/" />
+   <arg value="--exclude" />
+   <arg value="library" />
+  </exec>
+ </target>
+ <!-- END PHPLOC -->
+ 
+ <!-- PLATO metricas para JS -->
+  <target name="plato" description="Measure javascript source complexity">
+  <exec executable="plato">
+   <arg value="-r" />
+   <arg value="-t" />
+   <arg value="Flow" />
+   <arg value="-d" />
+   <arg value="${basedir}/build/report/" />
+   <arg path="${basedir}/code/resources/js-dev/" />
+  </exec>
+ </target>
+ <!-- END PLATO -->
+ 
+</project>

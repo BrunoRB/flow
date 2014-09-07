@@ -1,0 +1,24 @@
+
+{{#loadedFlowchart}}
+<div class="ui horizontal divider">
+    <i class="settings icon"></i>
+</div>
+
+<div class="settings-segment">
+    <strong>Nome</strong>
+    <div class="ui input mini fluid">
+        <input id="flowchart-name" type="text" value="{{name}}" maxlength="30">
+        <button id="confirm-name" class="ui button teal mini">Ok</button>
+    </div>
+</div>
+
+{{! TODO
+<div class="settings-segment">
+    <button id="export-image" class="ui button green fluid"><i class="screenshot icon"></i>Exportar imagem</button>
+</div>
+}}
+
+<form id="delete-flowchart-modal" class="settings-segment" method="post" action="/flowchart/delete/{{id}}">
+    <button id="delete" type="button" class="ui button red fluid"><i class="trash icon"></i>Deletar</button>
+</form>
+{{/loadedFlowchart}}

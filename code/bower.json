@@ -1,0 +1,19 @@
+{
+    "name": "Flow",
+    "version": "0.1.0",
+    "authors": [
+        "BrunoRB <brunorb8@hotmail.com>"
+    ],
+    "license": "Private",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "directory": "public/bower_components",
+    "dependencies": {
+        "d3": "~3.0"
+    }
+}

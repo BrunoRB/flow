@@ -1,0 +1,113 @@
+<div class="ui fluid grid" id="content">
+
+    <section id="left-area" class="three wide column">
+
+        <section id="logo">
+            <h1 class="ui center aligned header large black">FLOW <small>Beta</small></h1>
+        </section>
+
+        <section id="shape-menu" class="segment">
+            {{#menuShapes}}
+            <div class="shape" title="{{name}}" data-flow-name="{{name}}"
+                 data-max-inputs="{{maxInputs}}" data-max-outputs="{{maxOutputs}}"
+                 data-max-appearences="{{maxCopies}}" data-conn-label-type="{{connLabelType}}"
+                 data-has-user-text="{{hasUserText}}">
+                <code>{{defaultValue}}</code>
+                <img class="connector connector-top">
+                <img class="connector connector-right">
+                <img class="connector connector-bottom">
+                <img class="connector connector-left">
+            </div>
+            {{/menuShapes}}
+        </section>
+
+        <button id="createNew" class="ui button fluid teal inverted" title="Criar novo fluxograma">
+            <i class="add icon"></i>Novo
+        </button>
+
+        <section id="pagination" class="segment">
+            <div class="ui small icon input">
+                <input id="own-flowchart-search" value="{{nameFilter}}" type="text"
+                       placeholder="Buscar.." maxlength="30" />
+                <i class="search icon"></i>
+            </div>
+
+            <div class="dynamic-content">
+                {{{paginationContent}}}
+            </div>
+        </section>
+    </section>
+
+    <section id="right-area" class="ten wide column fluid">
+        <section id="flowchart-area" class="segment">
+            <div id="flowchart-tab" class="ui top attached tabular menu">
+                <a id="help-tab" class="item">
+                    <i class="help icon"></i>
+                </a>
+
+                {{#loadedFlowchart}}
+                <a id="{{name}}{{id}}-tab-link" class="item active flowchart-tab" title="{{name}}" data-flow-id="{{id}}">
+                    {{name}}
+                    <i class="remove icon medium red right"></i>
+                </a>
+                {{/loadedFlowchart}}
+                <a id="leave" class="item aligned right button ui teal" href="/flowchart/logout">
+                    <i class="sign out icon"></i>Sair
+                </a>
+            </div>
+
+            <div id="flowchart-container">
+                {{#loadedFlowchart}}
+                <div id="{{name}}{{id}}" data-flow-name="{{name}}" class="flowchart ui active" data-flow-id="{{id}}"
+                    data-is-own="{{#isOwnFlowchart}}true{{/isOwnFlowchart}}{{^isOwnFlowchart}}false{{/isOwnFlowchart}}"
+                    tabindex="-1">
+                    <span class="hidden-anchor">Anchor</span>
+                    <button id="toggle-settings" class="ui button black medium" title="Configuraćões do fluxograma">
+                        <i class="icon settings"></i>
+                    </button>
+                </div>
+                {{/loadedFlowchart}}
+                <div id="help-content" class="ui accordion">
+                    {{{helpContent}}}
+                </div>
+            </div>
+
+            <div id="console-area">
+                <button id="toggle-console" class="ui button" title="Esconder console">
+                    <i class="list layout icon"></i>
+                </button>
+
+                <section id="execution-buttons">
+                    <button id="execute" class='ui button teal mini labeled icon disabled' title="Executar">
+                        <i class="play icon teal inverted"></i> Executar
+                    </button> <br>
+                    <button id="debug" class='ui button teal mini labeled icon disabled' title="Iniciar debug">
+                        <i class="play sign icon teal inverted"></i> Debugar
+                    </button>
+                    <button id="debug-next" class='ui button basic mini disabled' title="Executar próximo">
+                        <i class="step forward icon teal"></i>
+                    </button>
+                    <button id="debug-stop" class='ui button basic mini disabled' title="Pausar debug">
+                        <i class="stop icon red"></i>
+                    </button>
+                </section>
+
+                <section id="console-display">
+                    <span class="fixed"><i class="terminal icon teal"></i>:</span>
+                    <span id="refresh-content" title="Limpar">
+                        <i class="refresh icon small red"></i>
+                    </span>
+                    <div id="console-display-content"></div>
+                </section>
+
+
+                <section id="console-right-side">
+                </section>
+            </div>
+        </section>
+
+        <aside id="flowchart-settings" class="ui inverted vertical styled sidebar left">
+            {{{configMenu}}}
+        </aside>
+    </section>
+</div>

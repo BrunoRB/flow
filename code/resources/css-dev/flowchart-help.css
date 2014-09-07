@@ -1,0 +1,67 @@
+/* HELP AREA */
+
+#flowchart-container #help-content .shape-accordion {
+    margin: 0;
+    width: 100%;
+}
+
+#flowchart-container #help-content {
+    display: none;
+    overflow-x: hidden;
+}
+
+#flowchart-container #help-content .shape-accordion .ui.basic.accordion {
+    width: 78%;
+}
+
+#flowchart-container #help-content .shape-accordion .content.field {
+    margin: 10px;
+    margin-left: 30px;
+}
+
+#flowchart-container #help-content .shape-accordion ul li {
+    list-style: circle;
+}
+
+#help-content {
+    border-radius: 0 !important;
+}
+
+#flowchart-container #help-content .content .title {
+    border-radius: 5px;
+}
+
+#flowchart-container #help-content > .title.active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#flowchart-container #help-content .title:hover {
+    background-color: #00B5AD;
+}
+
+#flowchart-container #help-content div.shape {
+    left: 80%;
+    margin-top: 20px;
+}
+
+#help-content #help-begin, #help-content #help-begin .title {
+    border-top-left-radius: 0 !important;
+}
+
+/*
+
+#flowchart-container #help-content .shape-accordion .examples {
+    padding: 50px;
+}
+
+#flowchart-container #help-content .examples div.shape {
+    left: 0;
+    position: relative;
+}
+
+#help-content #help-begin .examples div.shape[data-flow-name="process"],
+#help-content #help-end .examples div.shape[data-flow-name="end"],
+#help-content #help-process .examples div.shape[data-flow-name="process"]:first-child,
+#help-content #help-manual-input .examples div.shape[data-flow-name="process"] {
+    left: 400px;
+}*/

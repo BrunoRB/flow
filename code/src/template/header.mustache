@@ -1,0 +1,35 @@
+<header id="home-menu">
+    <section class="ui menu inverted">
+        <a id="home-link" class="item" href="/home/">
+            <i class="home icon"></i> Home
+        </a>
+
+        <form id="login-form" class="right menu ui form inverted" method="post" action="/home/login">
+            <div class="item field">
+                <div class="ui icon input">
+                    <input name="login-email" placeholder="e-mail" tabindex="1" type="email">
+                    <i class="mail link icon"></i>
+                </div>
+            </div>
+
+            <div class="item field">
+                <div class="ui icon input">
+                    <input name="login-password" placeholder="senha" tabindex="2" type="password">
+                    <i class="lock link icon"></i>
+                </div>
+            </div>
+            
+            <div class="item field">
+                <button id="logar" name="login-submit" tabindex="3" class="ui button teal">
+                    <i class="sign in icon"></i>Logar
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <section class="ui grid aligned center">
+        <h1>Flow <small>Beta</small></h1>
+        <em>Desenhe algoritmos</em>
+    </section>
+
+</header>

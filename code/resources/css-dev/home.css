@@ -1,0 +1,111 @@
+html, body {
+    font-family: serif !important;
+    background-color: white;
+}
+
+.ui.grid {
+    margin: 0;
+}
+
+#home-menu .menu {
+    border-radius: 0;
+}
+
+#home-menu #home-link {
+    color: white;
+    float: left;
+    border-radius: 0;
+}
+
+header  {
+    font-weight: bold;
+    color: black;
+}
+
+header h1 {
+    font-size: 80px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+    font-style: italic;
+}
+
+header h1 small {
+    font-size: 30px;
+    font-style: italic;
+    color: gray;
+}
+
+header em {
+    font-size: 25px;
+    color: #5C6166;
+}
+
+#log-register{
+    margin-top: 50px;
+    font-family: sans-serif !important;
+}
+
+#log-register a {
+    text-align: center;
+    margin: 10px 40px 0 40px;
+    width: 400px;
+}
+
+#log-register a.teal:hover {
+    color: black;
+}
+
+#flowchart-example {
+    margin: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#flowchart-example strong {
+    font-size: 25px;
+}
+
+#flowchart-example #flowchart-container {
+    height: 400px;
+}
+
+._jsPlumb_endpoint {
+    visibility: hidden;
+}
+
+#flowchart-container div.shape {
+    position: relative;
+}
+
+#flowchart-container div.shape[data-flow-name="begin"] {
+    top: 100px;
+    left: 40px;
+}
+#flowchart-container div.shape[data-flow-name="end"] {
+    left: 1000px;
+}
+#flowchart-container div.shape[data-flow-name="process"] {
+    left: 400px;
+}
+#flowchart-container div.shape[data-flow-name="display"] {
+    left: 700px;
+}
+
+#register {
+    margin: 50px 25% 0 25%;
+}
+
+#register #submit-div {
+    text-align: center;
+}
+
+#login-form {
+    height: 45px;
+}
+
+.field.error input {
+    background-color: white !important;
+    box-shadow: 0 0 20px red !important;
+}

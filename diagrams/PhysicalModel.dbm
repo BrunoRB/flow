@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel>
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<database name="flow">
+</database>
+
+<table name="flowuser">
+	<schema name="public"/>
+	<position x="756" y="79"/>
+	<column name="id">
+		<type name="serial"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="is_active" not-null="true" default-value="true">
+		<type name="boolean"/>
+	</column>
+	<column name="session_time">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="pk_aluno" type="pk-constr" factor="10" table="public.flowuser">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unique_email" type="uq-constr" factor="10" table="public.flowuser">
+		<columns names="email" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="check_name" type="ck-constr" table="public.flowuser">
+			<expression><![CDATA[LENGTH(name)  >= 4]]></expression>
+	</constraint>
+	<constraint name="check_email" type="ck-constr" table="public.flowuser">
+			<expression><![CDATA[LENGTH(email)  >= 5]]></expression>
+		<comment><![CDATA[TEMPORARIO]]></comment>
+	</constraint>
+</table>
+
+<table name="flowchart">
+	<schema name="public"/>
+	<position x="94" y="88"/>
+	<column name="id">
+		<type name="serial"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="last_alteration">
+		<type name="timestamp"/>
+	</column>
+	<column name="is_public" not-null="true" default-value="false">
+		<type name="boolean"/>
+	</column>
+	<constraint name="pk_fluxograma" type="pk-constr" factor="10" table="public.flowchart">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="check_name" type="ck-constr" table="public.flowchart">
+			<expression><![CDATA[LENGTH(name) >= 4]]></expression>
+	</constraint>
+</table>
+
+<table name="shape">
+	<schema name="public"/>
+	<position x="591" y="428"/>
+	<column name="id">
+		<type name="bigserial"/>
+	</column>
+	<column name="value">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="position_left" not-null="true">
+		<type name="double precision"/>
+	</column>
+	<column name="position_top" not-null="true">
+		<type name="double precision"/>
+	</column>
+	<column name="fk_shape_definition" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<constraint name="pk_geometric_symbol" type="pk-constr" factor="10" table="public.shape">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="user_has_flowcharts" type="rel1n"
+	 src-col-pattern="fk_flow_user"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="id"
+	 col-indexes="4" constr-indexes="1"
+	 src-table="public.flowuser"
+	 dst-table="public.flowchart"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="6.82336" y="-47.7985"/>
+	</label>
+</relationship>
+
+<table name="shapedefinition">
+	<schema name="public"/>
+	<position x="81" y="410"/>
+	<column name="id">
+		<type name="serial"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="default_value">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="max_inputs" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="max_outputs" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="max_copies" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<column name="has_user_text" not-null="true" default-value="true">
+		<type name="bool"/>
+	</column>
+	<column name="conn_label_type" default-value="'text'">
+		<type name="character varying" length="30"/>
+	</column>
+	<constraint name="pk_shape_definition" type="pk-constr" factor="10" table="public.shapedefinition">
+		<columns names="name" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="flowchart_has_symbols" type="rel1n"
+	 src-col-pattern="fk_flowchart"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 col-indexes="4" constr-indexes="1"
+	 src-table="public.flowchart"
+	 dst-table="public.shape"
+	 src-required="true" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="0" y="0"/>
+	</label>
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="shape_has_connections" type="relnn"
+	 src-col-pattern="fk_shape" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="id" dst-fk-pattern="{dt}_fk"
+	 src-table="public.shape"
+	 dst-table="public.shape"
+	 src-required="false" dst-required="false"	 table-name="shapeconnection">
+	<line>
+		<position x="931.109" y="473.76"/>
+	<position x="931.109" y="418"/>
+	<position x="811.073" y="418"/>
+	</line>
+	<label ref-type="name-label">
+		<position x="131.023" y="12.8"/>
+	</label>
+	<column name="value" default-value="' '">
+		<type name="character varying" length="30"/>
+	</column>
+	<column name="id">
+		<type name="serial"/>
+		<comment><![CDATA[Lixo, gerado pela restricao do redbeanphp]]></comment>
+	</column>
+</relationship>
+
+<constraint name="fk_shape_definition" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.shapedefinition" table="public.shape">
+	<columns names="fk_shape_definition" ref-type="src-columns"/>
+	<columns names="name" ref-type="dst-columns"/>
+</constraint>
+<relationship name="rel_shape_shape_definition" type="relfk"
+	 src-table="public.shape"
+	 dst-table="public.shapedefinition"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>

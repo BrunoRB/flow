@@ -1,0 +1,29 @@
+<section id="ownFlowcharts">
+    <div class="filteredBy">
+        <em>{{#filteredBy}}Filtrado por{{/filteredBy}}</em>
+        {{#filteredBy}}<strong>{{.}}</strong>{{/filteredBy}}
+    </div>
+
+    {{#myFlowcharts}}
+    <div class="paginated">
+        <a href="/flowchart/load/{{id}}" class="paginated" data-flow-id="{{id}}" data-flow-name="{{name}}">
+            {{name}}
+        </a> <br>
+
+        <div class="small">
+            <i>Última alteracao em:</i>
+            <time>{{lastAlteration}}{{^lastAlteration}}Nunca{{/lastAlteration}}</time> <br>
+        </div>
+    </div>
+    {{/myFlowcharts}}
+
+    {{^myFlowcharts}}
+    <div id="pagination-none">
+        <strong>Nenhum fluxograma encontrado</strong>
+    </div>
+    {{/myFlowcharts}}
+</section>
+
+<div id="pagination-bar" class="ui pagination menu small black inverted">
+    {{{paginationBarContent}}}
+</div>

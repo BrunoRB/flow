@@ -1,0 +1,326 @@
+html, body {
+    overflow: hidden;
+    font-family: serif !important;
+}
+
+#left-area {
+    width: 250px;
+    padding: 0;
+    margin-top: 0;
+}
+#left-area #logo {
+    height: 5.5%;
+    border-bottom: 1px solid #DCDDDE;
+}
+
+#left-area #logo h1 {
+    font-family: serif;
+    padding: 1%;
+    color: black !important;
+}
+
+#left-area #logo small {
+    font-size: 14px;
+    font-style: italic;
+    color: gray;
+}
+
+#left-area #config-menu {
+    margin-bottom: 50px;
+}
+
+#shape-menu {
+    height: 200px;
+    position: relative;
+}
+
+#settings .segment {
+    box-shadow: none;
+}
+
+#left-area button {
+    border-radius: 0;
+}
+
+#left-area #config-menu * {
+    margin-top: 0 ;
+    margin-bottom: 0;
+}
+
+#settings button {
+    margin-top: 10px;
+}
+
+#left-area #pagination {
+    text-align: center;
+    margin: 20px 0 20px 0;
+}
+
+#left-area #pagination #pagination-none {
+    margin-top: 15px;
+}
+
+#left-area #pagination div.paginated {
+    margin: 15px;
+}
+
+#left-area #pagination .small {
+    font-size: 14px;
+}
+
+#left-area #pagination #ownFlowcharts {
+    height: 260px;
+}
+
+#ownFlowcharts div.filteredBy {
+    height: 20px;
+    margin-top: 10px;
+}
+
+#right-area {
+    margin: 0;
+    padding: 0;
+}
+
+a#leave {
+    background-color: #D95C5C;
+    color: white;
+    border-radius: 0;
+}
+
+#flowchart-tab a.flowchart-tab {
+    padding-right: 50px;
+    color: teal;
+}
+
+#flowchart-tab a.flowchart-tab:hover {
+    opacity: 0.7;
+}
+
+#flowchart-tab a.flowchart-tab i.remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+
+#flowchart-tab a.flowchart-tab i.remove:hover {
+    opacity: 0.5;
+}
+
+#flowchart-container {
+    height: 80%;
+    position: relative;
+}
+
+#shape-menu, #flowchart-container div.flowchart {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+#flowchart-container div.flowchart, #flowchart-container #help-content {
+    overflow: scroll;
+    position: relative;
+    background-color: white;
+    border: 1px solid #DCDDDE;
+    border-top: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+#flowchart-area #toggle-settings {
+    position: fixed;
+    left: 250px;
+    top: 150px;
+    width: 70px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    color: white;
+    z-index: 999;
+}
+
+#flowchart-area #console-area {
+    border: 1px solid teal;
+    height: 19.5%;
+    width: 99.8%;
+    margin: 0;
+    position: relative;
+}
+
+#console-area button#toggle-console {
+    position: absolute;
+    z-index: 100;
+    bottom: 100%;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    height: 50px;
+    right: -0.2%;
+    background-color: black;
+}
+
+#console-area button#toggle-console i {
+    color: white;
+}
+
+#console-area #execution-buttons {
+    height: 100%;
+    width: 400px;
+    border-right: 2px solid teal;
+    float: left;
+}
+
+#console-area #execution-buttons button#execute, #console-area #execution-buttons button#debug {
+    width: 150px;
+}
+
+#console-area #execution-buttons button {
+    margin: 20px 0 0 20px;
+}
+
+#console-area #console-display {
+    width: 35%;
+    float: left;
+    padding: 10px 0 10px 10px;
+    border-right: 2px solid teal;
+    font-family: monospace;
+    color: black;
+    overflow-y: scroll;
+    height: 86%;
+}
+
+#console-area #console-display-content {
+    margin: 0 5px 10px 40px;
+    line-height: 200%;
+    padding-bottom: 10px;
+    width: 80%;
+    outline: none;
+    font-size: 12px;
+}
+
+#console-area #refresh-content {
+    float: right;
+    margin-right: 10px;
+}
+
+#console-area #refresh-content:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+#console-area #console-right-side {
+    float: left;
+    margin: 10px;
+}
+
+.alertify-message {
+    margin: 10px;
+}
+
+.alertify-buttons button:hover {
+    color: white !important;
+    opacity: 0.9;
+    box-shadow: 0 0 10px black;
+}
+
+.alertify-log-success {
+    background-color: teal;
+}
+
+.alertify-log-error {
+    background-color: #D95C5C;
+}
+
+.alertify-log-info {
+    background-color: black ;
+}
+
+#search-and-settings #settings {
+    margin-bottom: 500px !important;
+}
+
+.nano .slider {
+    background-color: teal !important;
+    z-index: 10;
+}
+
+#search-and-settings.nano .slider {
+    height: 100px !important;
+}
+
+#flowchart-container .hidden-anchor {
+    position: absolute;
+    top: 300%;
+    left: 300%;
+    visibility: hidden;
+}
+
+i.icon, #refresh-content i.refresh, #flowchart-tab a.flowchart-tab.active:hover {
+    opacity: 1;
+}
+
+#refresh-content:hover i.refresh {
+    opacity: 0.7 !important;
+}
+
+#flowchart-settings {
+    width: 250px !important;
+    background-color: black;
+    opacity: 0.95;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#flowchart-settings i.settings {
+    color: white;
+}
+
+#flowchart-settings .settings-segment {
+    margin: 10px 0 30px 0;
+}
+
+#flowchart-settings .settings-segment #confirm-name {
+    margin: 5px 0 50px 0;
+    width: 60px;
+}
+
+#flowchart-settings .settings-segment strong {
+    line-height: 2;
+}
+
+.button.negative.black, .button.negative.black:hover, button.black, div.black {
+    background-color: black !important;
+}
+
+.button.positive.red, .button.positive.red:hover {
+    background-color: #D95C5C !important;
+}
+.button.positive.red:hover, .button.negative.black:hover, a#leave:hover {
+    opacity: 0.9;
+}
+
+#alertify-cancel:focus, #alertify-ok:focus {
+    box-shadow: 0 0 20px black;
+}
+
+#alertify-cancel {
+    background-color: #000;
+    border: #000;
+}
+
+#alertify-ok {
+    background-color: #00B5AD;
+    border: #00B5AD;
+}
+
+#alertify-ok[type="submit"] {
+    background-color: teal;
+    border: teal;
+}
+
+.fixed {
+    position: fixed;
+}

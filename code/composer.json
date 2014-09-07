@@ -1,0 +1,6 @@
+{
+    "require": {
+    	 "mustache/mustache": ">=2.5",
+         "gabordemooij/redbean": "dev-master"
+    }
+}

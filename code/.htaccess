@@ -1,0 +1,16 @@
+
+FallbackResource /index.php
+DirectoryIndex index.php
+
+ExpiresActive On
+ExpiresByType image/gif "access plus 3 months"
+ExpiresByType image/jpeg "access plus 7 days"
+ExpiresByType image/png "access plus 7 days"
+ExpiresByType image/x-icon "access plus 3 months"
+ExpiresByType image/ico "access plus 3 months"
+ExpiresByType text/css "access plus 2 days"
+
+ExpiresByType text/js "access plus 2 days"
+ExpiresByType text/javascript "access plus 2 days"
+ExpiresByType application/javascript "access plus 2 days"
+ExpiresByType application/x-javascript "access plus 2 days" 
